@@ -29,7 +29,7 @@ SECRET_KEY = 'django-insecure-%l414)117f-_#m*o&a4j%0n@5ay#-!1kblr$=7y=4f=8%=@2py
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['youthdrive.herokuapp.com','127.0.0.0']
 
 
 # Application definition
