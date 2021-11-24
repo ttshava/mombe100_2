@@ -1,0 +1,61 @@
+{% load static %}
+{% static "images" as baseUrl %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Register YEMS Application</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    
+<!--===============================================================================================-->	
+	<link rel="icon" type="image/png" href="{% static 'login/images/icons/favicon.ico' %}"/>
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'login/vendor/bootstrap/css/bootstrap.min.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'login/fonts/font-awesome-4.7.0/css/font-awesome.min.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'login/vendor/animate/animate.css' %}">
+<!--===============================================================================================-->	
+	<link rel="stylesheet" type="text/css" href="{% static 'login/vendor/css-hamburgers/hamburgers.min.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'login/vendor/select2/select2.min.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'login/css/util.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'login/css/main.css' %}">
+<!--===============================================================================================-->
+</head>
+<body>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+<div class="alert alert-success " role="alert" style="margin-top:150px">
+  <h4 class="alert-heading d-flex justify-content-center">Well done!</h4>
+  <p class="d-flex justify-content-center">Aww yeah, you successfully registered as a member in the Youth Empowerment Management System (YEMS).</p>
+  <hr>
+  <p class="mb-0 d-flex justify-content-center">Thank You for Your interest</p>
+  
+  <div class="d-flex justify-content-center mt-3"  >
+  <a href="/"><button type="submit " class="btn btn-secondary d-flex justify-content-center" >Login</button> </a>
+  </div>
+</div>
+
+
+<!--===============================================================================================-->	
+	<script src="{% static 'login/vendor/jquery/jquery-3.2.1.min.js' %}"></script>
+<!--===============================================================================================-->
+	<script src="{% static 'login/vendor/bootstrap/js/popper.js' %}"></script>
+	<script src="{% static 'login/vendor/bootstrap/js/bootstrap.min.js' %}"></script>
+<!--===============================================================================================-->
+	<script src="{% static 'login/vendor/select2/select2.min.js' %}"></script>
+<!--===============================================================================================-->
+	<script src="{% static 'login/vendor/tilt/tilt.jquery.min.js' %}"></script>
+	<script >
+		$('.js-tilt').tilt({  
+			scale: 1.1
+		})
+	</script>
+<!--===============================================================================================-->
+	<script src="{% static 'login/js/main.js' %}"></script>
+
+</body>
+</html>

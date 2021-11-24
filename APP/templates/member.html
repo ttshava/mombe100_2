@@ -1,0 +1,157 @@
+{% load static %}
+{% static "images" as baseUrl %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>YEMS Application</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/png" href="{% static 'login/images/icons/favicon.ico' %}"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+</head>
+<body >	
+	
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+		  <a class="navbar-brand" href="">YEMS SYSTEM</a>
+		  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		  </button>
+		  <div class="collapse navbar-collapse " id="navbarText">
+			<ul class="navbar-nav mr-auto">
+			  <li class="nav-item active">
+				<a class="nav-link" href="/member">Home </a>
+			  </li>
+        <li class="nav-item active">
+				<a class="nav-link" href="/application">Application Form</a>
+			  </li>
+			</ul>
+			<span class="navbar-text">
+				Hello  {{user.first_name}}
+			</span>
+			
+			<ul class="navbar-nav float-right">			  
+			  <li class="nav-item active">
+				<a class="nav-link" href="/logout">Logout </a>
+			  </li>
+			</ul>
+		  </div>
+		</nav>
+<div class="container " >
+
+    
+          
+    <div class="main-body" >
+    <h5 class="d-flex justify-content-center">Member Profile</h5>
+        {% csrf_token %} 
+          <div class="row d-flex justify-content-center">            
+            <div class="col-md-8">
+              <div class="card mb-3">
+                <div class="card-body">
+                 <div class="row">
+                    <div class="col-sm-3">
+                      <img src="media/{{user.pic}}" alt="IMG" height="150px"  width="150px" >
+                    </div>                    
+                  </div>
+                  <hr>
+                  <div class="row">
+                    <div class="col-sm-3">
+                      <h6 class="mb-0">First Name</h6>
+                    </div>
+                    <div class="col-sm-9 text-secondary">
+                      {{user.first_name}}
+                    </div>
+                  </div>
+				          <hr>
+                  <div class="row">
+                    <div class="col-sm-3">
+                      <h6 class="mb-0">Last Name</h6>
+                    </div>
+                    <div class="col-sm-9 text-secondary">
+                      {{user.last_name}}
+                    </div>
+                  </div>
+                    <hr>
+                    <div class="row">
+                    <div class="col-sm-3">
+                      <h6 class="mb-0">Phone Number</h6>
+                    </div>
+                    <div class="col-sm-9 text-secondary">
+                      {{user.phonen
+                    </div>
+                  </div>
+
+                  <hr>
+                  <div class="row">
+                    <div class="col-sm-3">
+                      <h6 class="mb-0">Province</h6>
+                    </div>
+                    <div class="col-sm-9 text-secondary">
+                      {{user.province}}
+                    </div>
+                  </div>
+				          <hr>
+                  <div class="row">
+                    <div class="col-sm-3">
+                      <h6 class="mb-0">District</h6>
+                    </div>
+                    <div class="col-sm-9 text-secondary">
+                      {{user.district}}
+                    </div>
+                  </div>                  				          
+                </div>
+              </div>
+            </div>
+          </div>
+
+        <h5 class="d-flex justify-content-center">List of projects</h5>
+			  <table class="table justify-content-center">
+			  <thead class="thead-dark">
+				<tr>
+				  <th scope="col">Application reference number </th>
+				  <th scope="col">Project Name</th>
+				  <th scope="col">Stage 1</th>
+				  <th scope="col">Stage 2</th>
+				</tr>
+			  </thead >
+			  <tbody class="table-light">
+			   {% for project in projects%}
+				<tr >
+				  <th scope="row">{{project.reference_no}}</th>
+				  <td>{{project.project_name}}</td>
+				  <td>
+                {% if project.stage1_status == 0 %}
+                    Pending 
+                {% elif project.stage1_status == 1 %}
+                    Approved
+                {% elif project.stage1_status == 2 %}
+                    Rejected                                    
+                {% endif %}  
+          </td>
+				  <td>
+                {% if project.stage2_status == 0 %}
+                    Pending 
+                {% elif project.stage2_status == 1 %}
+                    Approved                
+                {% elif project.stage2_status == 2 %}
+                    Rejected   
+                {% endif %}  
+          </td>
+				</tr>				
+				{% endfor %}	
+			  </tbody>
+			</table>
+            </div>
+          </div>
+
+
+
+        </div>
+    </div>
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+	</body>
+</html>
