@@ -1,1 +1,1 @@
-web: gunicorn yems.wsgi --log-file -
+web: gunicorn YEMS.wsgi --log-file -
